@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<center><h4>{{user.first_name}} {{user.last_name}}</h4></center>
+<center><h4>Credit Card Info </br>{{cc}}</h4></center>
+<center><h5>You are currenlty waiting for...</h5></br>
+{% for order, line in lines.items %}
+<div class="row">
+	<div class="col-xs-4"><h5>{{order.restraunt}}</h5></div>
+	<div class="col-xs-8 pull-right"><h5>{{line}} people in line.</h5></div>
+</div>
+{% endfor %}
+</center>
+{% endblock %}

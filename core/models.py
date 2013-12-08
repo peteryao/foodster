@@ -20,4 +20,4 @@ class UserExtension(TimeStampedModel):
 	card = models.CharField(max_length=256, blank=True)
 
 	def __unicode__(self):
-		return self.user
+		return self.user.username

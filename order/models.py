@@ -37,7 +37,7 @@ class Order(TimeStampedModel):
 	restraunt = models.ForeignKey(Restraunt)
 	food = models.ForeignKey(Food)
 	user = models.ForeignKey(User)
-	transaction_id = models.CharField(max_length=64)
+	transaction_id = models.CharField(max_length=64, blank=True)
 
 	APPROVED = 'Approved'
 	REFUNDED = 'Refunded'

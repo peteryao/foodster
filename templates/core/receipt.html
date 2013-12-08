@@ -1,4 +1,24 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
+<center><h4>{{restraunt.name}}</h4></center>
+<center><h6>Thank you for your order.</h6></center>
+<div class="row">
+	{% for amount, food in order.items %}
+	<div class="col-xs-8"><h5>{{amount}} x {{food.0}} =</h5></div>
+	<div class="col-xs-4">${{food.1}}</div>
+	{% endfor %}
+	<div class="col-xs-8"><h5>Total</h5></div>
+	<div class="col-xs-4">${{total}}</div>
+</div>
+<div><h4> Your current place in line is {{current_line|length}}</h4></div>	
+
+<form action="{% url 'ebay' %}" method="post">
+	{% csrf_token %}
+  <input type="hidden" name="total" value="{{ total }}">
+  <input type="hidden" name="uid" value="{{ user.id }}">
+  <input type="hidden" name="oid" value="{{ oid }}">
+  <center><button action="submit" class="btn btn-success">Go to PayPal</a></center>
+</form>
+
 {% endblock %}

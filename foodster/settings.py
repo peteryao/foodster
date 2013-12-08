@@ -13,6 +13,12 @@ import os
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 project = lambda f: os.path.join(PROJECT_ROOT, f) # use as project('db')
 
+import paypalrestsdk
+api = paypalrestsdk.set_config(
+  mode="sandbox", # sandbox or live
+  client_id="AUXxpBDHjEjnKRRdJm1nAzR6hduC4oanyzO2vIIRO-3T2mipvFyi0xM3WNvy",
+  client_secret="EK4KGxBa2yxRJSKkMfjkALFOy38mCIy4OhEAeX_8bWNfb5RBa6vJ6cCcrO8p")
+api.get_token()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -82,6 +88,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+PAYPAL_EMAIL ='peteryao916-facilitator@gmail.com'
+
+PAYPAL_PDT_TOKEN ='api.sandbox.paypal.com'
 
 
 TEMPLATE_DIRS = (

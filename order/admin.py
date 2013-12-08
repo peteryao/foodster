@@ -9,7 +9,7 @@ class FoodAdmin(admin.ModelAdmin):
 	list_display = ['id', 'name', 'description', 'cost', 'portrait_photo', 'modified', 'created']
 
 class OrderAdmin(admin.ModelAdmin):
-	list_display = ['id', 'restraunt', 'food', 'user', 'transaction_id', 'status', 'modified', 'created']
+	list_display = ['id', 'restraunt', 'food', 'amount', 'user', 'transaction_id', 'status', 'modified', 'created']
 
 class RatingAdmin(admin.ModelAdmin):
 	list_display = ['id', 'user', 'restraunt', 'description', 'rating', 'modified', 'created']
