@@ -13,3 +13,8 @@ def index(request):
 		foods.append(Food.objects.filter(restraunt=restraunt).latest('id'))
 	context['restraunts'] = zip(restraunts, foods)
 	return render(request, 'core/index.html', context)
+
+def restraunt(request, restraunt_id):
+	context = {'user' : request.user}
+	
+	return render(request, 'core/restraunt.html', context)
