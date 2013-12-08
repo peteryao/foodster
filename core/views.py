@@ -16,5 +16,15 @@ def index(request):
 
 def restraunt(request, restraunt_id):
 	context = {'user' : request.user}
-	
+	restraunt = Restraunt.objects.get(pk=restraunt_id)
+	reviews = Rating.objects.filter(restraunt=restraunt)
+	average = 0
+	for rating in reviews:
+		average += rating.rating
+	context['rating'] = average / float(len(reviews))
+	context['foods'] = Food.objects.filter(restraunt=restraunt)[:6]
+	context['restraunt'] = restraunt
+	context['last_review'] = Rating.objects.filter(restraunt=restraunt)[:2]
+	# rating = sum(reviews.rating) / float(len(reviews))
+	current_line = Order.objects.filter(restraunt=restraunt).filter(status='Waiting')
 	return render(request, 'core/restraunt.html', context)

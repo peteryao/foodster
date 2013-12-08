@@ -1,20 +1,22 @@
 {% extends "core/base.html" %}
 
 {% block content %}
+<center><h4>Nearby Food!</h4></center>
 <div class="row">
 	{% for restraunt, food in restraunts %}
-
-	<div class="col-xs-5">
-		<h5>{{restraunt}}</h5>
+	<div class="col-xs-6">
+		<h5><center>{{restraunt}}</center></h5>
 		<div>
-		<img src="{{ MEDIA_URL }}{{food.portrait_photo}}" width="100" height="100">
+		<center><img src="{{ MEDIA_URL }}{{food.portrait_photo}}" width="100" height="100"></center>
 		</div>
-		<div class="btn-toolbar" role="toolbar" style="margin-left:10px; margin-top:10px">
+		<center>
+		<div class="btn-toolbar" role="toolbar" style="margin-left:25px; margin-top:10px">
 			<div class="btn-group">
-				<button type="button" class="btn btn-success" href="https://www.google.com/"><span class="glyphicon glyphicon-ok"></span></button>
+				<a href="{% url 'restraunt' restraunt.id %}" role="button" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span></a>
 				<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-remove"></span></button>
 			</div>
 		</div>
+		</center>
 	</div>
 	{% endfor %}
 </div>
