@@ -1,2 +1,5 @@
 Django==1.6
+PIL==1.1.7
+httplib2==0.8
+paypalrestsdk==0.6.4
 wsgiref==0.1.2
