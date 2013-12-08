@@ -50,6 +50,7 @@ class Order(TimeStampedModel):
 		(WAITING, WAITING)
 	)
 	status = models.CharField(max_length=200, choices=TRANSACTION_TYPES, default=WAITING)
+	amount = models.IntegerField(default=1)
 
 class Rating(TimeStampedModel):
 	user = models.ForeignKey(User)
