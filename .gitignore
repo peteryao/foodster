@@ -1,4 +1,5 @@
-venv
+/venv
 db
-static
+/static
 *.pyc
+.DS_Store*
